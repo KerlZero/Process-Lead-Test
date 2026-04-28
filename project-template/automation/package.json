@@ -1,0 +1,16 @@
+{
+  "name": "qa-project-automation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:e2e": "playwright test scripts/e2e",
+    "test:sanity": "playwright test scripts/sanity",
+    "test:regression": "playwright test scripts/regression"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0"
+  }
+}
+
