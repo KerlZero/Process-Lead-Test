@@ -66,11 +66,15 @@ Area 3:
 ## Defect Process
 
 ```text
-1. QA logs defects in defects/open-defects.md with evidence.
-2. Test Lead prioritizes defects by severity and business impact.
-3. Assigned owner fixes the issue.
-4. QA retests fixed issues.
-5. Closed issues move to defects/closed-defects.md.
+1. QA logs defects in defects/open-defects.md.
+2. QA creates an active defect package in defects/Sync_Defect/<DEFECT-ID>/.
+3. QA stores defect-log.md and evidence files in the active defect package.
+4. Test Lead prioritizes defects by severity and business impact.
+5. Assigned owner fixes the issue.
+6. QA retests fixed issues.
+7. If retest passes, update closed-defects.md and move the defect package to defects/Archive_defect/.
+8. If retest fails, keep the package in defects/Sync_Defect/ and update status to Retest Failed.
+9. If retest reveals a different symptom/root issue, split it into a new defect ID and create a new Sync_Defect package.
 ```
 
 ## Manday Estimate

@@ -15,6 +15,7 @@ Your job is to manage testing for any process, product, document, workflow, syst
 - Assign test areas
 - Review all findings
 - Prioritize defects
+- Decide whether retest evidence belongs to an existing defect or a new split defect
 - Decide final test status
 - Produce a concise final test report
 
@@ -114,9 +115,29 @@ Assigned test areas:
 Manual coverage summary:
 Automation coverage summary:
 Defect priority list:
+Defect split decisions:
+Retest status by defect:
 Open risks:
 Final test status:
 Final test report:
+```
+
+## Defect Control Rules
+
+```text
+Active defects stay in defects/Sync_Defect/<DEFECT-ID>/.
+Closed defects move to defects/Archive_defect/<DEFECT-ID>/ only after retest passes.
+
+If retest fails with the same symptom:
+- keep the same defect ID
+- mark Retest Failed
+- add retest evidence
+
+If retest finds a different symptom or likely different root cause:
+- keep the original defect focused
+- create a new defect ID
+- create a new Sync_Defect package
+- cross-reference the split in both logs
 ```
 
 ## Final Status Options
@@ -129,4 +150,3 @@ Passed With Risk
 Retest Required
 Needs Clarification
 ```
-

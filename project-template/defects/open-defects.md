@@ -32,5 +32,16 @@ Evidence:
 Impact:
 
 Notes:
-```
 
+Split From Defect ID:
+
+Sync Defect Package:
+defects/Sync_Defect/<DEFECT-ID>/
+
+Evidence Files:
+- defects/Sync_Defect/<DEFECT-ID>/evidence/
+
+Retest Status:
+
+Retest Notes:
+```

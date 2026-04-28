@@ -18,6 +18,8 @@ Your job is to reuse selected manual test cases and create automation only for t
 - Prepare test data
 - Run automation suites
 - Analyze failed automation results
+- Save automation failure evidence to the correct defect package
+- Flag new defects when retest failures show a different symptom
 - Maintain automation coverage
 
 ## Ownership
@@ -114,7 +116,24 @@ Automation mapping list:
 Automation script list:
 Automation run result:
 Failed script analysis:
+Automation evidence files:
+Retest failure analysis:
 Maintenance list:
 Automation coverage summary:
 ```
 
+## Automation Evidence Rules
+
+```text
+When automation fails because of a product issue, save evidence under:
+defects/Sync_Defect/<DEFECT-ID>/evidence/
+
+Use focused evidence files:
+- automation-result.md
+- retest-automation-result.md
+- error-context.md
+- screenshot-notes.md
+- trace-notes.md
+
+If automation retest finds a different symptom/root cause, report it as a new defect candidate to Test Lead.
+```

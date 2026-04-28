@@ -5,6 +5,8 @@
 ```text
 Run ID: MANUAL-RUN-001
 Date:
+Run Type: Initial / Retest
+Retest Target:
 Environment:
 Tester:
 Scope:
@@ -27,6 +29,7 @@ Test Case ID:
 Result:
 Defect ID:
 Evidence:
+Defect Package:
+Split Decision:
 Notes:
 ```
-

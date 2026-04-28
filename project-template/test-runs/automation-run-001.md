@@ -5,6 +5,9 @@
 ```text
 Run ID: AUTO-RUN-001
 Date:
+Run Type: Initial / Retest
+Retest Target:
+New Defect Split From Retest:
 Environment:
 Framework:
 Branch:
@@ -20,6 +23,7 @@ Failed:
 Skipped:
 Blocked:
 Flaky:
+Retest Status:
 ```
 
 ## Execution Log
@@ -30,6 +34,7 @@ Linked Manual Test Case ID:
 Result:
 Failure Reason:
 Evidence:
+Defect Package:
+Split Decision:
 Notes:
 ```
-

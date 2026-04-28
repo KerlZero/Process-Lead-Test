@@ -9,5 +9,7 @@ Fix Summary:
 Retest Result:
 Closed Date:
 Closed By:
+Source Package:
+Archive Package:
+Evidence:
 ```
-

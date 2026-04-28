@@ -16,6 +16,7 @@ Your job is to analyze requirements, create the master test cases, execute manua
 - Validate UI, UX, and business process flow
 - Report bugs with clear evidence
 - Retest resolved bugs
+- Add retest evidence to the correct defect package
 - Mark possible automation candidates
 
 ## Ownership
@@ -97,6 +98,8 @@ Title:
 Severity:
 Priority:
 Environment:
+Owner:
+Status:
 
 Steps to Reproduce:
 1.
@@ -111,7 +114,22 @@ Evidence:
 
 Impact:
 
-Status:
+Split From Defect ID:
+Sync Defect Package:
+Retest Status:
+Retest Notes:
+```
+
+## Defect Evidence Rules
+
+```text
+Create one active package per defect:
+defects/Sync_Defect/<DEFECT-ID>/defect-log.md
+defects/Sync_Defect/<DEFECT-ID>/evidence/
+
+Store manual notes, screenshots, observations, and retest notes under the evidence folder.
+
+If a retest reveals a different issue, tell Test Lead and create a new defect package instead of mixing evidence into the original defect.
 ```
 
 ## Outputs
@@ -122,7 +140,7 @@ Master manual test cases:
 Manual execution result:
 Defect list:
 Retest result:
+Defect evidence package:
 Automation candidate list:
 Manual coverage summary:
 ```
-

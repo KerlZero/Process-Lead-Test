@@ -94,6 +94,12 @@ Set 3: Test Execution
 
 Set 4: Defect Fix, Retest, And Quality Update
 17. Retest if needed.
+    - Record retest run result.
+    - Update each active defect log.
+    - Add new evidence files under defects/Sync_Defect/<DEFECT-ID>/evidence/.
+    - If retest fails, keep the defect in Sync_Defect and mark Retest Failed.
+    - If retest passes, update closed-defects.md and move the package to Archive_defect.
+    - If retest reveals a different symptom/root issue, split it into a new defect ID.
 18. Update quality summary.
 
 Set 5: Final Report And Test Lead Decision
@@ -111,6 +117,9 @@ Set 5: Final Report And Test Lead Decision
 - Step 17 runs only when defects exist.
 - If no defects exist, skip retest and update quality summary directly.
 - If defects exist, repeat fix -> retest until resolved or accepted as risk by Test Lead.
+- Do not archive a defect until retest passes.
+- Do not mix separate symptoms in one defect when they need different fixes.
+- A retest may create a new defect if the evidence proves a different failure mode.
 ```
 
 ## Required Project Evidence
@@ -125,6 +134,8 @@ automation/mapping.md
 test-runs/manual-run-001.md
 test-runs/automation-run-001.md
 defects/open-defects.md
+defects/Sync_Defect/<DEFECT-ID>/defect-log.md
+defects/Sync_Defect/<DEFECT-ID>/evidence/
 reports/traceability-matrix.md
 reports/quality-summary.md
 reports/final-test-report.md
@@ -152,10 +163,15 @@ Set 3 outputs:
 - test-runs/manual-run-001.md
 - test-runs/automation-run-001.md
 - defects/open-defects.md if defects are found
+- defects/Sync_Defect/<DEFECT-ID>/defect-log.md if defects are found
+- defects/Sync_Defect/<DEFECT-ID>/evidence/ if defects are found
 
 Set 4 outputs:
 - defects/open-defects.md
 - defects/closed-defects.md
+- defects/Sync_Defect/<DEFECT-ID>/defect-log.md updated with retest result
+- defects/Sync_Defect/<DEFECT-ID>/evidence/ updated with retest evidence
+- defects/Archive_defect/<DEFECT-ID>/ only when retest passes
 - test-runs/manual-run-002.md if needed
 - test-runs/automation-run-002.md if needed
 - reports/quality-summary.md
@@ -163,4 +179,25 @@ Set 4 outputs:
 Set 5 outputs:
 - reports/final-test-report.md
 - reports/quality-summary.md
+```
+
+## Defect Split Rule
+
+```text
+When retesting a defect, compare the new failure to the original defect.
+
+Keep the same defect when:
+- The same symptom remains.
+- The same expected result is still failing.
+- The same fix owner/root area is likely responsible.
+
+Create a new defect when:
+- Retest reveals a different symptom.
+- The new evidence points to a different root issue.
+- The original defect would become unclear if both issues were mixed.
+- The new issue needs a different fix or verification method.
+
+Example:
+- DEF-001: mobile navigation text is hidden.
+- DEF-002: mobile navigation link is visible but click is intercepted by sticky header.
 ```

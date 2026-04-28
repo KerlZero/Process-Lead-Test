@@ -41,6 +41,22 @@ Critical:
 High:
 Medium:
 Low:
+Open:
+Retest Failed:
+Closed:
+Accepted Risk:
+New Split Defects:
+Archived Defects:
+```
+
+## Retest Summary
+
+```text
+Retest Runs:
+Passed Retests:
+Failed Retests:
+Defects Remaining In Sync_Defect:
+Defects Moved To Archive_defect:
 ```
 
 ## Open Risks

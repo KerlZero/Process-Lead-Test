@@ -22,6 +22,8 @@ requirements/           Source requirements and review notes
 test-cases/             Master manual test cases
 test-runs/              Manual and automation execution records
 defects/                Defect logs and retest tracking
+defects/Sync_Defect/    Active defect packages with logs and evidence
+defects/Archive_defect/ Closed defect packages after retest pass
 automation/             Automation strategy, mapping, and scripts
 reports/                Final reports and quality summaries
 templates/              Reusable document templates
@@ -62,6 +64,10 @@ Set 3: Test Execution
 
 Set 4: Defect Fix, Retest, And Quality Update
 17. Retest if needed
+    - Log retest result for each active defect
+    - Keep failed defects in defects/Sync_Defect/
+    - Split a new defect if retest finds a different symptom or root issue
+    - Move only passed/closed defect packages to defects/Archive_defect/
 18. Update quality summary
 
 Set 5: Final Report And Test Lead Decision
@@ -83,4 +89,35 @@ Do not move to the next set until the current set is reviewed and approved.
 - Do not record real execution results here.
 - Do not store real defects here.
 - Copy the template first, then work inside the copied project folder.
+```
+
+## Defect Evidence Rule
+
+```text
+For every active defect, create:
+defects/Sync_Defect/<DEFECT-ID>/defect-log.md
+defects/Sync_Defect/<DEFECT-ID>/evidence/
+
+Evidence should be separated by defect type.
+Example:
+- visibility-error-context.md for hidden / not visible issues
+- click-interception-error-context.md for blocked click / overlap issues
+- automation-result.md for automation run summary
+- manual-result.md for manual execution notes
+
+If retest passes:
+- update defect-log.md
+- update defects/closed-defects.md
+- move the defect package from defects/Sync_Defect/ to defects/Archive_defect/
+
+If retest fails:
+- update defect-log.md as Retest Failed
+- keep the defect package in defects/Sync_Defect/
+- update defects/open-defects.md and reports/quality-summary.md
+
+If retest finds a different issue:
+- keep the original defect focused on its original symptom
+- create a new defect ID
+- create a new Sync_Defect package for the new defect
+- cross-reference the split in both defect logs
 ```
